@@ -1,15 +1,74 @@
-let LoginCtrl = ($scope, service, service2) => {
+let LoginCtrl = ($scope, $state, overlay) => {
 
-  $scope.message = "dupa";
-
-
-  $scope.ser = () => {
-    console.log( service.add(17) );
-  }  
-
-  $scope.ser2 = () => {
-    console.log( service2.multiply(17) );
+  $scope.data = { 
+    state : "login",
+    email : "default@example.com",
+    password : "password",
+    repeat : "password"
   }
+
+  var _clear = function() {
+    $scope.data = { 
+      state : "login",
+      email : "default@example.com",
+      password : "password",
+      repeat : "password"
+    }
+  }
+
+  $scope.doLogin = function() {
+
+    overlay.loading();
+
+    firebase.auth().signInWithEmailAndPassword($scope.data.email, $scope.data.password)
+      .then(function(user) {
+        overlay.hide();
+        $state.go("home");
+        _clear();
+      })
+      .catch(function(error) {
+        overlay.error();
+        console.error(error.code);
+        console.error(error.message);
+        alert(error.message);
+      });
+  };
+
+  $scope.doCreate = function() {
+    if ($scope.data.password !== $scope.data.repeat) {
+      alert("Passwords must match.");
+      return;
+    }
+
+    overlay.loading();
+
+    firebase.auth().createUserWithEmailAndPassword($scope.data.email, $scope.data.password)
+      .then(function(user) {
+        overlay.hide();
+        $state.go("home");
+        _clear();
+      })
+      .catch(function(error) {
+        overlay.error();
+        console.error(error.code);
+        console.error(error.message);
+        alert(error.message);
+      });
+  };
+
+  $scope.doReset = function() {
+    firebase.auth().sendPasswordResetEmail($scope.data.email)
+      .then(function(user) {
+        overlay.success();
+        _clear();
+        $scope.$apply(); // async reset, need manually kick
+      }).catch(function(error) {
+        overlay.error();
+        console.error(error.code);
+        console.error(error.message);
+        alert(error.message);
+      });
+  };
 }
 
 export default LoginCtrl;

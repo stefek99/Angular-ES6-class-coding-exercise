@@ -1,0 +1,59 @@
+
+<h1 class="title">
+  <span ng-show="data.state === 'login'">Login</span>
+  <span ng-show="data.state === 'create'" class="title">Create Account</span>
+  <span ng-show="data.state === 'reset'" class="title">Reset Password</span>
+</h1>
+
+<form ng-show="data.state === 'login'" ng-submit="doLogin()">
+  <div class="list">
+    <label class="item item-input">
+      <span class="input-label">Email</span>
+      <input type="email" ng-model="data.email">
+    </label>
+    <label class="item item-input">
+      <span class="input-label">Password</span>
+      <input type="password" ng-model="data.password">
+    </label>
+    <label class="item">
+      <button class="button button-block button-positive" type="submit">Log in</button>
+    </label>
+  </div>
+</form>
+
+<form ng-show="data.state === 'create'" ng-submit="doCreate()">
+  <div class="list">
+    <label class="item item-input">
+      <span class="input-label">Email</span>
+      <input type="email" ng-model="data.email">
+    </label>
+    <label class="item item-input">
+      <span class="input-label">Password</span>
+      <input type="password" ng-model="data.password">
+    </label>
+    <label class="item item-input">
+      <span class="input-label">Repeat</span>
+      <input type="password" ng-model="data.repeat">
+    </label>
+    <label class="item">
+      <button class="button button-block button-positive" type="submit">Create account</button>
+    </label>
+  </div>
+</form>
+
+<form ng-show="data.state === 'reset'" ng-submit="doReset()">
+  <div class="list">
+    <label class="item item-input">
+      <span class="input-label">Email</span>
+      <input type="email" ng-model="data.email">
+    </label>
+
+    <label class="item">
+      <button class="button button-block button-positive" type="submit">Reset password</button>
+    </label>
+  </div>
+</form>
+
+<a href ng-hide="data.state === 'login'"  ng-click="data.state = 'login'">login</a><br>
+<a href ng-hide="data.state === 'create'" ng-click="data.state = 'create'">create account</a><br>
+<a href ng-hide="data.state === 'reset'"  ng-click="data.state = 'reset'">reset password</a><br>
