@@ -12,6 +12,11 @@ let routerConfiguration = ($stateProvider, $urlRouterProvider) => {
       url: "/home",
       templateUrl: "templates/home.html",
       controller: "HomeCtrl"
+    })    
+    .state('new', {
+      url: "/new",
+      templateUrl: "templates/new.html",
+      controller: "NewCtrl"
     })
 
 };

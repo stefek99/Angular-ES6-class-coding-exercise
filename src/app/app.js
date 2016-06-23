@@ -5,6 +5,7 @@ import overlay from './services/overlay';
 
 import LoginCtrl from './controllers/login';
 import HomeCtrl from './controllers/home';
+import NewCtrl from './controllers/new';
 
 import routerConfiguration from './routerConfiguration';
 import uirouter from 'angular-ui-router';
@@ -25,6 +26,7 @@ const MODULE_NAME = 'app';
 angular.module(MODULE_NAME, [uirouter, angularfire])
   .controller('LoginCtrl', LoginCtrl)
   .controller('HomeCtrl', HomeCtrl)
+  .controller('NewCtrl', NewCtrl)
   .service('overlay', overlay)
   .config(routerConfiguration)
 
