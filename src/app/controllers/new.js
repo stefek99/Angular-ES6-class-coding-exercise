@@ -1,18 +1,19 @@
-class NewCtrl {
+import Entry from '../models/entry';
 
-  constructor($scope) {
+let NewCtrl = ($scope, $state, database) => {
 
-    this.data = {
-      date: new Date(),
-      distance: 5.5,
-      time: "12:12"
-    };
+  $scope.data = {
+    date: new Date(),
+    distance: 5.5,
+    time: new Date(0,0,0,0,10,0)
+  };
 
-    this.addEntry = () => {
-      console.log("adding stuff");
-    }
-  }
+  $scope.addEntry = () => {
 
-}
+    database.addEntry(new Entry({ date : $scope.data.date, distance : $scope.data.distance, time : $scope.data.time }));
+
+  };
+
+};
 
 export default NewCtrl;

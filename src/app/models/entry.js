@@ -4,5 +4,6 @@ class Entry {
     this.distance = options.distance;
     this.time = options.time;
   }
-  
 }
+
+export default Entry;;
