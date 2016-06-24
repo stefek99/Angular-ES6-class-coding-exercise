@@ -5,7 +5,7 @@ let LoginCtrl = ($scope, $state, overlay) => {
     email : "default@example.com",
     password : "password",
     repeat : "password"
-  }
+  };
 
   var _clear = function() {
     $scope.data = { 
@@ -13,8 +13,8 @@ let LoginCtrl = ($scope, $state, overlay) => {
       email : "default@example.com",
       password : "password",
       repeat : "password"
-    }
-  }
+    };
+  };
 
   $scope.doLogin = function() {
 
@@ -69,6 +69,6 @@ let LoginCtrl = ($scope, $state, overlay) => {
         alert(error.message);
       });
   };
-}
+};
 
 export default LoginCtrl;

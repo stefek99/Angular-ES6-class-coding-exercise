@@ -30,6 +30,6 @@ angular.module(MODULE_NAME, [uirouter, angularfire])
   .controller('NewCtrl', NewCtrl)
   .service('overlay', overlay)
   .service('database', database)
-  .config(routerConfiguration)
+  .config(routerConfiguration);
 
 export default MODULE_NAME;
