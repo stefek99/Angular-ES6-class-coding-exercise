@@ -13,6 +13,7 @@ import uirouter from 'angular-ui-router';
 import angularfire from 'angularfire';
 
 import '../style/app.css';
+import '../style/test.scss';
 
 var config = {
   apiKey: "AIzaSyDPjSD7KBNFIf2YkGsOqsyq0TvvG9R2Kic",
