@@ -8,20 +8,19 @@ import LoginCtrl from './controllers/login';
 import HomeCtrl from './controllers/home';
 import NewCtrl from './controllers/new';
 
-import routerConfiguration from './routerConfiguration';
+import {config, runConfig} from './config';
 import uirouter from 'angular-ui-router';
 import angularfire from 'angularfire';
 
-import '../style/app.css';
 import '../style/test.scss';
 
-var config = {
+var firebaseConfig = {
   apiKey: "AIzaSyDPjSD7KBNFIf2YkGsOqsyq0TvvG9R2Kic",
   authDomain: "toptal-b6f8d.firebaseapp.com",
   databaseURL: "https://toptal-b6f8d.firebaseio.com",
   storageBucket: "",
 };
-firebase.initializeApp(config);
+firebase.initializeApp(firebaseConfig);
 
 const MODULE_NAME = 'app';
 
@@ -31,6 +30,7 @@ angular.module(MODULE_NAME, [uirouter, angularfire])
   .controller('NewCtrl', NewCtrl)
   .service('overlay', overlay)
   .service('database', database)
-  .config(routerConfiguration);
+  .config(config)
+  .run(runConfig);
 
 export default MODULE_NAME;

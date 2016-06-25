@@ -10,7 +10,13 @@ let NewCtrl = ($scope, $state, database) => {
 
   $scope.addEntry = () => {
 
-    database.addEntry(new Entry({ date : $scope.data.date, distance : $scope.data.distance, time : $scope.data.time }));
+    database.addEntry(new Entry({ date : $scope.data.date, distance : $scope.data.distance, time : $scope.data.time }))
+      .then(() => {
+        $state.go("home");
+      }, () => {
+        alert("error");
+      });
+
 
   };
 

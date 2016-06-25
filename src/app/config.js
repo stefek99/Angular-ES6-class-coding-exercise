@@ -1,4 +1,4 @@
-let routerConfiguration = ($stateProvider, $urlRouterProvider) => {
+let config = ($stateProvider, $urlRouterProvider) => {
 
   $urlRouterProvider.otherwise("/login");
 
@@ -17,8 +17,17 @@ let routerConfiguration = ($stateProvider, $urlRouterProvider) => {
       url: "/new",
       templateUrl: "templates/new.html",
       controller: "NewCtrl"
-    })
+    });
+};
+
+// $rootScope only available during run phase
+let runConfig = ($rootScope) => {
+
+  // https://firebase.google.com/docs/auth/web/manage-users#get_the_currently_signed-in_user
+  firebase.auth().onAuthStateChanged(function(user) {
+    $rootScope.user = user;
+  });
 
 };
 
-export default routerConfiguration;
+export {config, runConfig};
