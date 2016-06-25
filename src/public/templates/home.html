@@ -1,5 +1,38 @@
 <h1>home</h1>
+<button ng-click="$state.go('new')">new entry</button>
 
+<table class="table table-bordered">
+  <tr>
+    <th>Date</th>
+    <th>Time</th>
+    <th>Distance</th>
+    <th>Operations</th>
+  </tr>
+  <tr ng-repeat="entry in entries">
+    <td>{{ entry.date | date }}</td>
+    <td>{{ entry.time | date:"HH:mm" }}</td>
+    <td>{{ entry.distance }}</td>
+    <td>
+    
+      <span ng-show="entry.state === 'show' || entry.state === undefined"> <!-- initially no state is provided, using smart defaults -->
+        <a href ng-click="entry.state = 'edit'"><i class="fa fa-pencil"></i> edit</a>
+        <a href ng-click="entry.state = 'delete'"><i class="fa fa-trash"></i> delete</a>
+      </span>
 
+      <span ng-show="entry.state === 'edit'">
+        <a href ng-click="entry.state = 'show'; save()"><i class="fa fa-check"></i> save</a>
+        <a href ng-click="entry.state = 'show'; revert()"><i class="fa fa-times"></i> revert</a>
+      </span>
+
+      <span ng-show="entry.state === 'delete'">
+        For real?
+        <a href ng-click="entry.state = 'show'; save()">yes</a>
+        <a href ng-click="entry.state = 'show'; revert()">no</a>
+      </span>
+    </td>
+  </tr>
+</table>
+
+<pre>{{  entries | json }}</pre>
 
 <button ng-click="signOut()">sign out</button>
