@@ -2,6 +2,8 @@ import Entry from '../models/entry';
 
 let NewCtrl = ($scope, $state, database) => {
 
+  $scope.$state = $state;
+
   $scope.data = {
     date: new Date(),
     distance: 5.5,

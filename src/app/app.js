@@ -13,7 +13,7 @@ import {config, runConfig, firebaseConfig} from './config';
 import uirouter from 'angular-ui-router';
 import angularfire from 'angularfire';
 
-import '../style/test.scss';
+import '../style/styles.scss';
 
 firebase.initializeApp(firebaseConfig);
 

@@ -1,19 +1,31 @@
-<form ng-submit="addEntry()">
-  <div class="list">
-    <label class="item item-input">
-      <span class="input-label">Date</span>
-      <input type="date" ng-model="data.date">
-    </label>
-    <label class="item item-input">
-      <span class="input-label">Distance</span>
-      <input type="number" step="any" ng-model="data.distance">
-    </label>
-    <label class="item item-input">
-      <span class="input-label">Time</span>
-      <input type="time" ng-model="data.time">
-    </label>
-    <label class="item">
-      <button class="button button-block button-positive" type="submit">Add Entry</button>
-    </label>
-  </div>
-</form>
+<div class="container">
+  <form class="form-horizontal" ng-submit="addEntry()">
+    <div class="form-group">
+      <label for="input-date" class="col-xs-2 control-label">Date</label>
+      <div class="col-xs-10">
+        <input type="datetime-local" id="input-date" class="form-control" ng-model="data.date">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="input-distance" class="col-xs-2 control-label">Distance</label>
+      <div class="col-xs-10">
+        <input type="number" step="any" ng-model="data.distance" class="form-control" id="input-distance">
+      </div>
+    </div>  
+
+    <div class="form-group">
+      <label for="input-time" class="col-xs-2 control-label">Time</label>
+      <div class="col-xs-10">
+        <input type="time" ng-model="data.time" class="form-control" id="input-time">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-xs-offset-2 col-xs-10">
+        <button type="submit" class="btn btn-default">Add Entry</button>
+        <a href ng-click="$state.go('home')">Cancel</a>
+      </div>
+    </div>
+  </form>
+</div>
