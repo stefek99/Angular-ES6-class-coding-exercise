@@ -3,3 +3,30 @@
   margin-bottom: 0;
   text-align: right;
 }
+
+.table {
+  width: 600px;
+
+  .date {
+    width: 260px;
+    input {
+      width: 240px;
+    }
+  }
+  .time {
+    width: 100px;
+    input {
+      width: 80px;
+    }
+  }
+  .distance {
+    width: 80px;
+    input {
+      width: 60px;
+    }
+  }
+  .operations {
+    width: 140px;
+  }
+}
+

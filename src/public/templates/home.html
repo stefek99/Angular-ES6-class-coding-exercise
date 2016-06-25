@@ -1,33 +1,41 @@
 <h1>tracking jogging times</h1>
 <button ng-click="$state.go('new')">new entry</button>
 
-<table class="table table-bordered" style="width:600px">
+<table class="table table-bordered">
   <tr>
-    <th>Date</th>
-    <th>Time</th>
-    <th>Distance</th>
-    <th width="150px">Operations</th>
+    <th class="date">Date</th>
+    <th class="time">Time</th>
+    <th class="distance">Distance</th>
+    <th class="operation">Operations</th>
   </tr>
   <tr ng-repeat="entry in entries">
-    <td>{{ entry.date | date }}</td>
-    <td>{{ entry.time | date:"HH:mm" }}</td>
-    <td>{{ entry.distance }}</td>
-    <td>
-    
-      <span ng-show="entry.state === 'show' || entry.state === undefined"> <!-- initially no state is provided, using smart defaults -->
-        <a href ng-click="entry.state = 'edit'"><i class="fa fa-pencil"></i> edit</a>
+    <td class="date">
+      <span ng-show="entry.state !== 'edit'">{{ entry.date | date:"yyyy-MM-dd HH:mm" }}</span>
+      <span ng-show="entry.state === 'edit'"><input type="datetime-local" ng-model="entry.dateDate"></span>
+    </td>
+    <td class="time">
+      <span ng-show="entry.state !== 'edit'">{{ entry.time | date:"HH:mm" }}</span>
+      <span ng-show="entry.state === 'edit'"><input type="time" ng-model="entry.timeDate"></span>
+    </td>
+    <td class="distance">
+      <span ng-show="entry.state !== 'edit'">{{ entry.distance }}</span>
+      <span ng-show="entry.state === 'edit'"><input type="number" step="any" ng-model="entry.distance"></span>
+    </td>
+    <td class="operation">
+      <span ng-show="entry.state === 'show'">
+        <a href ng-click="edit(entry)"><i class="fa fa-pencil"></i> edit</a>
         <a href ng-click="entry.state = 'delete'"><i class="fa fa-trash"></i> delete</a>
       </span>
 
       <span ng-show="entry.state === 'edit'">
-        <a href ng-click="entry.state = 'show'; save()"><i class="fa fa-check"></i> save</a>
-        <a href ng-click="entry.state = 'show'; revert()"><i class="fa fa-times"></i> revert</a>
+        <a href ng-click="save(entry)"><i class="fa fa-check"></i> save</a>
+        <a href ng-click="revert(entry)"><i class="fa fa-times"></i> revert</a>
       </span>
 
       <span ng-show="entry.state === 'delete'">
         For real?
-        <a href ng-click="entry.state = 'show'; save()">yes</a>
-        <a href ng-click="entry.state = 'show'; revert()">no</a>
+        <a href ng-click="confirmDelete(entry)">yes</a>
+        <a href ng-click="entry.state = 'show'">no</a> <!-- no deleting, no operation, just return to 'show' state -->
       </span>
     </td>
   </tr>
