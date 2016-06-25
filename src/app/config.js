@@ -36,12 +36,25 @@ let runConfig = ($rootScope, $state) => {
   // https://firebase.google.com/docs/auth/web/manage-users#get_the_currently_signed-in_user
   firebase.auth().onAuthStateChanged(function(user) {
     $rootScope.user = user;
+    if (!user) {
+      $state.go("login");
+    }
   });
 
   $rootScope.$on("$stateChangeError", function(event, next, previous, error) {
     console.warn("Not authenticated - redicreting to login");
-    $state.go('login');
+    $state.go("login");
   });
+
+  $rootScope.signOut = () => {
+
+    firebase.auth().signOut().then(function() {
+      $state.go("login");
+    }, function(error) {
+      console.error(error);
+    });
+
+  };
 };
 
 var firebaseConfig = {
