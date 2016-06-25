@@ -1,0 +1,1 @@
+* ability to use the app without the login

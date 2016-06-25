@@ -1,5 +1,5 @@
 class HomeCtrl {
-  constructor() {
+  constructor(currentAuth) {
 
 
 
