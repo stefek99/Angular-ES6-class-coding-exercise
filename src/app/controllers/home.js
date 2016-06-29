@@ -5,6 +5,10 @@ class HomeCtrl {
 
     this.$state = $state; // so we are able to access $state and navigate
 
+    // default values for filtering
+    $scope.to   = new Date();
+    $scope.from = new Date( new Date().setFullYear($scope.to.getFullYear() - 1) ); // for some reason setFullYear returns a number so need to wrap up...
+
     database.getEntries($scope.user.uid).then((entries) => {
       this.entries = angular.copy(entries);
 
@@ -53,6 +57,13 @@ class HomeCtrl {
 
       database.deleteEntry($scope.user.uid, entry.$id);
     };
+
+    this.fromTo = function() {
+      return function(entry) {
+        return (entry.dateDate < $scope.to && entry.dateDate > $scope.from);
+      };
+    };
+
   }
 }
 

@@ -13,3 +13,6 @@ ADMIN INTERFACE... HMMM...
 (tempted to make it a separate app so the code is not visible to the users)
 
 On the other hand Firebase rules are making it secure!
+
+KNOWN BUGS:
+* Editing data that is out of... Check edit mode... || editmode!!! (easy, one line fix)
