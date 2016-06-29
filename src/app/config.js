@@ -12,6 +12,7 @@ let config = ($stateProvider, $urlRouterProvider) => {
       url: "/home",
       templateUrl: "templates/home.html",
       controller: "HomeCtrl",
+      controllerAs: "home",
       resolve: {
           // https://www.firebase.com/docs/web/libraries/angular/guide/user-auth.html
           // controller will not be loaded until $requireAuth resolves

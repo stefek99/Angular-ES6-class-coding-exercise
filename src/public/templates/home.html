@@ -9,7 +9,7 @@
     <th class="speed">Speed</th>
     <th class="operation">Operations</th>
   </tr>
-  <tr ng-repeat="entry in entries">
+  <tr ng-repeat="entry in home.entries">
     <td class="date">
       <span ng-show="entry.state !== 'edit'">{{ entry.dateDate | date:"yyyy-MM-dd HH:mm" }}</span>
       <span ng-show="entry.state === 'edit'"><input type="datetime-local" ng-model="entry.dateDate"></span>
@@ -23,22 +23,22 @@
       <span ng-show="entry.state === 'edit'"><input type="number" step="any" ng-model="entry.distance"></span>
     </td>    
     <td class="speed">
-      <span ng-show="entry.state !== 'edit'">{{ entry.speed }}</span>
+      {{ entry.speed }} <!-- displayed regardless the state -->
     </td>
     <td class="operation">
       <span ng-show="entry.state === 'show'">
-        <a href ng-click="edit(entry)"><i class="fa fa-pencil"></i> edit</a>
+        <a href ng-click="home.edit(entry)"><i class="fa fa-pencil"></i> edit</a>
         <a href ng-click="entry.state = 'delete'"><i class="fa fa-trash"></i> delete</a>
       </span>
 
       <span ng-show="entry.state === 'edit'">
-        <a href ng-click="save(entry)"><i class="fa fa-check"></i> save</a>
-        <a href ng-click="revert(entry)"><i class="fa fa-times"></i> revert</a>
+        <a href ng-click="home.save(entry)"><i class="fa fa-check"></i> save</a>
+        <a href ng-click="home.revert(entry)"><i class="fa fa-times"></i> revert</a>
       </span>
 
       <span ng-show="entry.state === 'delete'">
         For real?
-        <a href ng-click="confirmDelete(entry)">yes</a>
+        <a href ng-click="home.confirmDelete(entry)">yes</a>
         <a href ng-click="entry.state = 'show'">no</a> <!-- no deleting, no operation, just return to 'show' state -->
       </span>
     </td>
