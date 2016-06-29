@@ -31,7 +31,7 @@ let config = ($stateProvider, $urlRouterProvider) => {
 
 
 // $rootScope only available during run phase
-let runConfig = ($rootScope, $state) => {
+let runConfig = ($rootScope, $state, database) => {
 
   // https://firebase.google.com/docs/auth/web/manage-users#get_the_currently_signed-in_user
   firebase.auth().onAuthStateChanged(function(user) {
@@ -47,6 +47,7 @@ let runConfig = ($rootScope, $state) => {
   });
 
   $rootScope.signOut = () => {
+    database.destroy(); // REQUIRED: otherwise we will try to sync data while we are not authenticated
 
     firebase.auth().signOut().then(function() {
       $state.go("login");

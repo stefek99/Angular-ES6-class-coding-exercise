@@ -10,11 +10,11 @@
   </tr>
   <tr ng-repeat="entry in entries">
     <td class="date">
-      <span ng-show="entry.state !== 'edit'">{{ entry.date | date:"yyyy-MM-dd HH:mm" }}</span>
+      <span ng-show="entry.state !== 'edit'">{{ entry.dateDate | date:"yyyy-MM-dd HH:mm" }}</span>
       <span ng-show="entry.state === 'edit'"><input type="datetime-local" ng-model="entry.dateDate"></span>
     </td>
     <td class="time">
-      <span ng-show="entry.state !== 'edit'">{{ entry.time | date:"HH:mm" }}</span>
+      <span ng-show="entry.state !== 'edit'">{{ entry.timeDate | date:"HH:mm" }}</span>
       <span ng-show="entry.state === 'edit'"><input type="time" ng-model="entry.timeDate"></span>
     </td>
     <td class="distance">
@@ -41,6 +41,8 @@
   </tr>
 </table>
 
-<pre>{{  entries | json }}</pre>
+<!--
+  <pre>{{  entries | json }}</pre>
+-->
 
 <button ng-click="signOut()">sign out</button>

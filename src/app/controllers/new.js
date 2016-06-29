@@ -4,8 +4,12 @@ let NewCtrl = ($scope, $state, database) => {
 
   $scope.$state = $state;
 
+  let now = new Date();
+  now.setSeconds(0);
+  now.setMilliseconds(0);
+
   $scope.data = {
-    date: new Date(),
+    date: now,
     distance: 5.5,
     time: new Date(0,0,0,0,10,0)
   };

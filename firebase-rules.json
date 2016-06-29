@@ -1,0 +1,14 @@
+
+{
+  "rules": {
+    "users": {
+      "$uid": {
+        ".write": "$uid === auth.uid || (root.child('users/' + auth.uid + '/role').val() === 'manager')",
+        ".read": "$uid === auth.uid || (root.child('users/' + auth.uid + '/role').val() === 'manager')",
+        "role" : {
+          ".write" : "root.child('users/' + auth.uid + '/role').val() === 'manager'"
+        }
+      }
+    }
+  }
+}
