@@ -1,7 +1,7 @@
 import Entry from '../models/entry';
 
 class HomeCtrl {
-  constructor($scope, $state, currentAuth, database) {
+  constructor($scope, $state, database, speed) {
 
     $scope.$state = $state; // so we are able to access $state and navigate
 
@@ -12,6 +12,7 @@ class HomeCtrl {
         entry.timeDate = new Date(entry.time);
         entry.dateDate = new Date(entry.date);
         entry.state = "show";
+        entry.speed = speed.get(entry.distance, entry.time);
       });
 
     });

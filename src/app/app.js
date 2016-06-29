@@ -4,6 +4,7 @@ import firebase from 'firebase';
 import overlay from './services/overlay';
 import database from './services/database';
 import auth from './services/auth';
+import speed from './services/speed';
 
 import LoginCtrl from './controllers/login';
 import HomeCtrl from './controllers/home';
@@ -26,6 +27,7 @@ angular.module(MODULE_NAME, [uirouter, angularfire])
   .service('overlay', overlay)
   .service('database', database)
   .service('auth', auth)
+  .service('speed', speed)
   .config(config)
   .run(runConfig);
 

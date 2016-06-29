@@ -5,7 +5,8 @@
   <tr>
     <th class="date">Date</th>
     <th class="time">Time</th>
-    <th class="distance">Distance</th>
+    <th class="distance">Dist (km)</th>
+    <th class="speed">Speed</th>
     <th class="operation">Operations</th>
   </tr>
   <tr ng-repeat="entry in entries">
@@ -14,12 +15,15 @@
       <span ng-show="entry.state === 'edit'"><input type="datetime-local" ng-model="entry.dateDate"></span>
     </td>
     <td class="time">
-      <span ng-show="entry.state !== 'edit'">{{ entry.timeDate | date:"HH:mm" }}</span>
-      <span ng-show="entry.state === 'edit'"><input type="time" ng-model="entry.timeDate"></span>
+      <span ng-show="entry.state !== 'edit'">{{ entry.timeDate | date:"HH:mm:ss" }}</span>
+      <span ng-show="entry.state === 'edit'"><input type="time" step="1" ng-model="entry.timeDate"></span>
     </td>
     <td class="distance">
       <span ng-show="entry.state !== 'edit'">{{ entry.distance }}</span>
       <span ng-show="entry.state === 'edit'"><input type="number" step="any" ng-model="entry.distance"></span>
+    </td>    
+    <td class="speed">
+      <span ng-show="entry.state !== 'edit'">{{ entry.speed }}</span>
     </td>
     <td class="operation">
       <span ng-show="entry.state === 'show'">

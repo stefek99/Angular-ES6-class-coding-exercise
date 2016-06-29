@@ -10,7 +10,7 @@ form.login, form.create, form.reset {
 
 
 .table {
-  width: 600px;
+  width: 700px;
 
   .date {
     width: 260px;
@@ -19,12 +19,18 @@ form.login, form.create, form.reset {
     }
   }
   .time {
-    width: 100px;
+    width: 120px;
     input {
-      width: 80px;
+      width: 100px;
     }
   }
   .distance {
+    width: 80px;
+    input {
+      width: 60px;
+    }
+  }  
+  .speed {
     width: 80px;
     input {
       width: 60px;

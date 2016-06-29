@@ -2,23 +2,34 @@ import app from './app';
 
 describe('app', () => {
 
-  describe('AppCtrl', () => {
-    let ctrl;
+
+  describe('HomeCtrl', () => {
+    let ctrl, $scope, databaseMock;
 
     beforeEach(() => {
       angular.mock.module(app);
 
-      angular.mock.inject(($controller) => {
-        ctrl = $controller('AppCtrl', {});
+      databaseMock = jasmine.createSpyObj('database', ['getEntries']);
+
+      angular.mock.inject(($controller, $rootScope, $q) => {
+        $scope = $rootScope.$new();
+        $scope.user = {
+          uid : "uid"
+        };
+
+        databaseMock.getEntries.and.returnValue($q.when([]));
+
+        ctrl = $controller('HomeCtrl', {$scope: $scope, database: databaseMock});
       });
     });
 
     it('should contain the starter url', () => {
-      expect(ctrl.url).toBe('https://github.com/preboot/angular-webpack');
+      expect(typeof ctrl.edit).toBe('function');
     });
   });
 
 
+/*
   describe('service', () => {
 
     var service;
@@ -35,28 +46,8 @@ describe('app', () => {
 
       var result = service.add(17);
       expect(result).toBe(19);
-    })
-
-  })  
-
-  describe('service2', () => {
-
-    var service2;
-    
-    beforeEach(() => {
-      angular.mock.module('app');
-
-      angular.mock.inject(function(_service2_) {
-        service2 = _service2_;
-      });
     });
 
-    it('should multiply 17', () => {
-
-      var result = service2.multiply(17);
-      expect(result).toBe(34);
-    })
-
-  })
-
+  });
+*/
 });
