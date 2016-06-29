@@ -38,6 +38,8 @@ let runConfig = ($rootScope, $state, database) => {
     $rootScope.user = user;
     if (!user) {
       $state.go("login");
+    } else {
+      firebase.database().ref("users/" + user.uid).update({ email : user.email });
     }
   });
 
