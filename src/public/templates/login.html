@@ -4,52 +4,69 @@
   <span ng-show="data.state === 'reset'" class="title">Reset Password</span>
 </h1>
 
-<form ng-show="data.state === 'login'" ng-submit="doLogin()">
-  <div class="list">
-    <label class="item item-input">
-      <span class="input-label">Email</span>
-      <input type="email" ng-model="data.email">
-    </label>
-    <label class="item item-input">
-      <span class="input-label">Password</span>
-      <input type="password" ng-model="data.password">
-    </label>
-    <label class="item">
-      <button class="button button-block button-positive" type="submit">Log in</button>
-    </label>
+<form class="form-horizontal login" ng-show="data.state === 'login'" ng-submit="doLogin()">
+  <div class="form-group">
+    <label for="input-login-email" class="col-xs-3 control-label">Email</label>
+    <div class="col-xs-9">
+      <input type="email" ng-model="data.email" class="form-control" id="input-login-email">
+    </div>
+  </div>  
+
+  <div class="form-group">
+    <label for="input-login-password" class="col-xs-3 control-label">Password</label>
+    <div class="col-xs-9">
+      <input type="password" ng-model="data.password" class="form-control" id="input-login-password">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-xs-offset-3 col-xs-9">
+      <button type="submit" class="btn btn-default">Log in</button>
+    </div>
   </div>
 </form>
 
-<form ng-show="data.state === 'create'" ng-submit="doCreate()">
-  <div class="list">
-    <label class="item item-input">
-      <span class="input-label">Email</span>
-      <input type="email" ng-model="data.email">
-    </label>
-    <label class="item item-input">
-      <span class="input-label">Password</span>
-      <input type="password" ng-model="data.password">
-    </label>
-    <label class="item item-input">
-      <span class="input-label">Repeat</span>
-      <input type="password" ng-model="data.repeat">
-    </label>
-    <label class="item">
-      <button class="button button-block button-positive" type="submit">Create account</button>
-    </label>
+<form class="form-horizontal create" ng-show="data.state === 'create'" ng-submit="doCreate()">
+  <div class="form-group">
+    <label for="input-create-email" class="col-xs-3 control-label">Email</label>
+    <div class="col-xs-9">
+      <input type="email" ng-model="data.email" class="form-control" id="input-create-email">
+    </div>
+  </div>  
+
+  <div class="form-group">
+    <label for="input-create-password" class="col-xs-3 control-label">Password</label>
+    <div class="col-xs-9">
+      <input type="password" ng-model="data.password" class="form-control" id="input-create-password">
+    </div>
+  </div>  
+
+  <div class="form-group">
+    <label for="input-create-repeat" class="col-xs-3 control-label">Repeat</label>
+    <div class="col-xs-9">
+      <input type="password" ng-model="data.repeat" class="form-control" id="input-create-repeat">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-xs-offset-3 col-xs-9">
+      <button type="submit" class="btn btn-default">Create account</button>
+    </div>
   </div>
 </form>
 
-<form ng-show="data.state === 'reset'" ng-submit="doReset()">
-  <div class="list">
-    <label class="item item-input">
-      <span class="input-label">Email</span>
-      <input type="email" ng-model="data.email">
-    </label>
+<form class="form-horizontal reset" ng-show="data.state === 'reset'" ng-submit="doReset()">
+  <div class="form-group">
+    <label for="input-create-email" class="col-xs-3 control-label">Email</label>
+    <div class="col-xs-9">
+      <input type="email" ng-model="data.email" class="form-control" id="input-create-email">
+    </div>
+  </div>  
 
-    <label class="item">
-      <button class="button button-block button-positive" type="submit">Reset password</button>
-    </label>
+  <div class="form-group">
+    <div class="col-xs-offset-3 col-xs-9">
+      <button type="submit" class="btn btn-default">Reset password</button>
+    </div>
   </div>
 </form>
 
