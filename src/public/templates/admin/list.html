@@ -1,0 +1,14 @@
+<table class="table table-bordered">
+  <tr>
+    <th class="email">Email</th>
+    <th class="operation">Operations</th>
+  </tr>
+  <tr ng-repeat="(key, val) in admin.users">
+    <td class="val.email">
+      {{ user.email }}
+    </td>
+    <td class="operation">
+      <a href ng-click="$stage.go('admin.edit', {uid: key})">edit</a>
+    </td>
+  </tr>
+</table>

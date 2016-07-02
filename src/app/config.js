@@ -40,12 +40,19 @@ let config = ($stateProvider, $urlRouterProvider) => {
     })
     .state('admin', {
       url: "/admin",
-      templateUrl: "templates/admin.html",
+      templateUrl: "templates/admin/home.html",
       controller: "AdminCtrl",
       controllerAs: "admin"
+    })
+    .state('admin.list', {
+      url: "/list",
+      templateUrl: "templates/admin/list.html",
+    })
+    .state('admin.detail', {
+      url: "/detail/:uid",
+      templateUrl: "templates/admin/detail.html",
     });
 };
-
 
 // $rootScope only available during run phase
 let runConfig = ($rootScope, $state, database) => {

@@ -4,7 +4,8 @@ class AdminCtrl {
   constructor($scope, $state, database, speed) {
 
     database.getUsers().then((users) => {
-      this.users = users;
+      this.users = users.val();
+      $scope.$apply();
     });
 
   }
