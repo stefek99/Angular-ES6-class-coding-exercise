@@ -29,6 +29,9 @@ let database = ($q, $firebaseArray) => {
     },
     getRole : function(uid) {
       return firebase.database().ref('users/' + uid + '/role').once("value");
+    },
+    getUsers : function(uid) { // Only users with the 'admin' will be allowed, checked on the serverside Firebase rules
+      return firebase.database().ref('users').once("value");
     }
   };
 };

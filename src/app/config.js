@@ -31,7 +31,8 @@ let config = ($stateProvider, $urlRouterProvider) => {
     .state('admin', {
       url: "/admin",
       templateUrl: "templates/admin.html",
-      controller: "AdminCtrl"
+      controller: "AdminCtrl",
+      controllerAs: "admin"
     });
 };
 
