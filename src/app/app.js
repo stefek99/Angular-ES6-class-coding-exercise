@@ -11,6 +11,8 @@ import HomeCtrl from './controllers/home';
 import NewCtrl from './controllers/new';
 import AdminCtrl from './controllers/admin';
 
+import entries from './directives/entries';
+
 import {config, runConfig, firebaseConfig} from './config';
 import uirouter from 'angular-ui-router';
 import angularfire from 'angularfire';
@@ -30,6 +32,7 @@ angular.module(MODULE_NAME, [uirouter, angularfire])
   .service('database', database)
   .service('auth', auth)
   .service('speed', speed)
+  .directive('entries', entries)
   .config(config)
   .run(runConfig);
 
