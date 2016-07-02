@@ -1,20 +1,15 @@
 let LoginCtrl = ($scope, $state, overlay) => {
 
-  $scope.data = { 
-    state : "login",
-    email : "default@example.com",
-    password : "password",
-    repeat : "password"
-  };
-
   var _clear = function() {
     $scope.data = { 
       state : "login",
-      email : "default@example.com",
+      email : "default2@example.com",
       password : "password",
       repeat : "password"
     };
   };
+
+  _clear(); // setting default data initially, also used in other places
 
   $scope.doLogin = function() {
 

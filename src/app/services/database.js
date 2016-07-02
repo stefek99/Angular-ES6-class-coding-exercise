@@ -26,6 +26,9 @@ let database = ($q, $firebaseArray) => {
     },
     destroy : function() {
       entries.$destroy();
+    },
+    getRole : function(uid) {
+      return firebase.database().ref('users/' + uid + '/role').once("value");
     }
   };
 };

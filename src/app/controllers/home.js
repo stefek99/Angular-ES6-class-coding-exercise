@@ -3,6 +3,11 @@ import Entry from '../models/entry';
 class HomeCtrl {
   constructor($scope, $state, database, speed) {
 
+    database.getRole($scope.user.uid).then((role) => {
+      this.role = role.val();
+      $scope.$apply();
+    });
+
     this.$state = $state; // so we are able to access $state and navigate
 
     // default values for filtering

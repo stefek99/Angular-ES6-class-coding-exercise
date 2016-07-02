@@ -1,4 +1,5 @@
 <h1>tracking jogging times</h1>
+
 <button ng-click="$state.go('new')">new entry</button>
 <br>
 <br>
@@ -6,6 +7,7 @@ From: <input type="datetime-local" ng-model="home.from">
 To: <input type="datetime-local" ng-model="home.to">
 <br>
 <br>
+
 <table class="table table-bordered">
   <tr>
     <th class="date">Date</th>
@@ -50,8 +52,9 @@ To: <input type="datetime-local" ng-model="home.to">
   </tr>
 </table>
 
-<!--
-  <pre>{{  entries | json }}</pre>
--->
+<span ng-if="home.role === 'admin'">
+  <h1>I'm an admin</h1>
+  <p>Go to <a href="/#/admin">admin console</a></p>
+</span>
 
 <button ng-click="signOut()">sign out</button>

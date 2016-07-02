@@ -15,6 +15,7 @@ describe('HomeCtrl', () => {
       };
 
       databaseMock.getEntries.and.returnValue($q.when([]));
+      databaseMock.getRole.and.returnValue($q.when([]));
 
       ctrl = $controller('HomeCtrl', {$scope: $scope, database: databaseMock});
     });
