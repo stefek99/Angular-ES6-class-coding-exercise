@@ -20,6 +20,16 @@ let config = ($stateProvider, $urlRouterProvider) => {
             // $requireSignIn returns a promise so the resolve waits for it to complete
             // If the promise is rejected, it will throw a $stateChangeError (see above)
             return auth.$requireSignIn();
+          },
+          entries: function($rootScope, database) {
+            return database.getEntries($rootScope.user.uid);
+          },
+          role: function($rootScope, $q, database) {
+            var defer = $q.defer();
+            database.getRole($rootScope.user.uid).then((role) => {
+              defer.resolve(role.val());
+            });
+            return defer.promise;
           }
         }
     })    

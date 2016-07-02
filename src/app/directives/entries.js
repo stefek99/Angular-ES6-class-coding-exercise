@@ -10,6 +10,15 @@ let entries = (database, speed) => {
     },
     controller: function($scope) {
 
+      this.data = angular.copy(this.data);
+
+      this.data.forEach((entry) => {
+        entry.timeDate = new Date(entry.time);
+        entry.dateDate = new Date(entry.date);
+        entry.state = "show";
+        entry.speed = speed.get(entry.distance, entry.timeDate);
+      });
+
       // default values for filtering
       this.to   = new Date();
       this.from = new Date( new Date().setFullYear(this.to.getFullYear() - 1) ); // for some reason setFullYear returns a number so need to wrap up...

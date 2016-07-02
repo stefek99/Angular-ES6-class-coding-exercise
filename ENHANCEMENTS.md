@@ -18,3 +18,5 @@ KNOWN BUGS:
 * Editing data that is out of... Check edit mode... || editmode!!! (easy, one line fix)
 
 // TODO: REPORT ON AVERAGE SPEED AND DISTANCE PER WEEK...
+
+"not showing ___ filtered resutls"

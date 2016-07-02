@@ -1,6 +1,6 @@
 let database = ($q, $firebaseArray) => {
 
-  let entries; // storing reference so we can CRUD
+  let entries; // storing reference so we can cleanup
 
   return {
     addEntry : function(uid, entry) {
