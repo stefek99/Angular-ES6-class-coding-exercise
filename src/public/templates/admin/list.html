@@ -5,10 +5,10 @@
   </tr>
   <tr ng-repeat="(key, val) in admin.users">
     <td class="val.email">
-      {{ user.email }}
+      {{ val.email }}
     </td>
     <td class="operation">
-      <a href ng-click="$stage.go('admin.edit', {uid: key})">edit</a>
+      <a href ng-click="admin.$state.go('admin.detail', {uid: key, email: val.email})">edit</a>
     </td>
   </tr>
 </table>

@@ -1,7 +1,7 @@
-import Entry from '../models/entry';
-
-class AdminCtrl {
+class AdminListCtrl {
   constructor($scope, $state, database, speed) {
+
+    this.$state = $state; // so we can navigate from the view
 
     database.getUsers().then((users) => {
       this.users = users.val();
@@ -11,4 +11,4 @@ class AdminCtrl {
   }
 }
 
-export default AdminCtrl;
+export default AdminListCtrl;

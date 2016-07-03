@@ -1,4 +1,4 @@
-let config = ($stateProvider, $urlRouterProvider) => {
+let routerConfig = ($stateProvider, $urlRouterProvider) => {
 
   $urlRouterProvider.otherwise("/login");
 
@@ -41,16 +41,18 @@ let config = ($stateProvider, $urlRouterProvider) => {
     .state('admin', {
       url: "/admin",
       templateUrl: "templates/admin/home.html",
-      controller: "AdminCtrl",
-      controllerAs: "admin"
     })
     .state('admin.list', {
       url: "/list",
       templateUrl: "templates/admin/list.html",
+      controller: "AdminListCtrl",
+      controllerAs: "admin"
     })
     .state('admin.detail', {
-      url: "/detail/:uid",
+      url: "/detail/:uid/:email",
       templateUrl: "templates/admin/detail.html",
+      controller: "AdminDetailCtrl",
+      controllerAs: "admin"
     });
 };
 
@@ -91,4 +93,4 @@ var firebaseConfig = {
   storageBucket: "",
 };
 
-export {config, runConfig, firebaseConfig};
+export {routerConfig, runConfig, firebaseConfig};
