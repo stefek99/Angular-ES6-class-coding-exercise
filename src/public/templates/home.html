@@ -6,9 +6,28 @@
 
 <div entries data="home.entries" uid="home.uid"></div>
 
+<!-- Report on average speed & distance per week -->
+<span ng-show="home.entries.length > 0">
+  <h2>Reports</h2>
+
+  <div class="btn-group" role="group">
+    <button type="button" class="btn btn-default">« previous</button>
+    <button type="button" class="btn btn-default">See ___ week</button>
+    <button type="button" class="btn btn-default">next »</button>
+  </div>
+
+</span>
+<span ng-show="home.entries.length === 0">
+  <h2>No entries, not displaying `reports` stuff</h2>
+</span>
+
+<div class="clearfix"></div>
+
 <span ng-if="home.role === 'admin'">
-  <h1>I'm an admin</h1>
+  <h2>I'm an admin</h2>
   <p>Go to <a href="/#/admin/list">admin console</a></p>
 </span>
+
+<div class="clearfix"></div>
 
 <button ng-click="signOut()">sign out</button>

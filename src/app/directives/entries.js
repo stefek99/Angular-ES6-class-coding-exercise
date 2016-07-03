@@ -55,8 +55,8 @@ let entries = (database, speed) => {
       };
 
       this.confirmDelete = (entry) => {
-        var index = this.entries.indexOf(entry);
-        this.entries.splice(index, 1);
+        var index = this.data.indexOf(entry);
+        this.data.splice(index, 1);
 
         database.deleteEntry(this.uid, entry.$id);
       };
