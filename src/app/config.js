@@ -31,8 +31,15 @@ let routerConfig = ($stateProvider, $urlRouterProvider) => {
           });
           return defer.promise;
         }
-      }
+      },
+      redirectTo: 'home.list', // As seen on TV: http://stackoverflow.com/a/29491412/775359
+    })
+    .state('home.list', {
+      templateUrl: "templates/home-list.html",
     })    
+    .state('home.reports', {
+      templateUrl: "templates/home-reports.html",
+    })
     .state('new', {
       url: "/new",
       templateUrl: "templates/new.html",
@@ -91,6 +98,13 @@ let runConfig = ($rootScope, $state, database) => {
   $rootScope.$on("$stateChangeError", function(event, next, previous, error) {
     console.warn("Not authenticated - redicreting to login");
     $state.go("login");
+  });
+
+  $rootScope.$on('$stateChangeStart', function(evt, to, params) {
+    if (to.redirectTo) {
+      evt.preventDefault();
+      $state.go(to.redirectTo, params);
+    }
   });
 
   $rootScope.signOut = () => {
