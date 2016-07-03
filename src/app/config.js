@@ -14,24 +14,24 @@ let routerConfig = ($stateProvider, $urlRouterProvider) => {
       controller: "HomeCtrl",
       controllerAs: "home",
       resolve: {
-          // https://www.firebase.com/docs/web/libraries/angular/guide/user-auth.html
-          // controller will not be loaded until $requireAuth resolves
-          currentAuth: function(auth) {
-            // $requireSignIn returns a promise so the resolve waits for it to complete
-            // If the promise is rejected, it will throw a $stateChangeError (see above)
-            return auth.$requireSignIn();
-          },
-          entries: function($rootScope, database) {
-            return database.getEntries($rootScope.user.uid);
-          },
-          role: function($rootScope, $q, database) {
-            var defer = $q.defer();
-            database.getRole($rootScope.user.uid).then((role) => {
-              defer.resolve(role.val());
-            });
-            return defer.promise;
-          }
+        // https://www.firebase.com/docs/web/libraries/angular/guide/user-auth.html
+        // controller will not be loaded until $requireAuth resolves
+        currentAuth: function(auth) {
+          // $requireSignIn returns a promise so the resolve waits for it to complete
+          // If the promise is rejected, it will throw a $stateChangeError (see above)
+          return auth.$requireSignIn();
+        },
+        entries: function($rootScope, database) {
+          return database.getEntries($rootScope.user.uid);
+        },
+        role: function($rootScope, $q, database) {
+          var defer = $q.defer();
+          database.getRole($rootScope.user.uid).then((role) => {
+            defer.resolve(role.val());
+          });
+          return defer.promise;
         }
+      }
     })    
     .state('new', {
       url: "/new",
@@ -41,6 +41,20 @@ let routerConfig = ($stateProvider, $urlRouterProvider) => {
     .state('admin', {
       url: "/admin",
       templateUrl: "templates/admin/home.html",
+      resolve: {
+        role: function($rootScope, $q, database) {
+          var defer = $q.defer();
+          database.getRole($rootScope.user.uid).then((role) => {
+            role = role.val();
+            if (role === "admin") {
+              defer.resolve();
+            } else {
+              defer.reject();
+            }
+          });
+          return defer.promise;
+        }
+      }
     })
     .state('admin.list', {
       url: "/list",
@@ -52,7 +66,12 @@ let routerConfig = ($stateProvider, $urlRouterProvider) => {
       url: "/detail/:uid/:email",
       templateUrl: "templates/admin/detail.html",
       controller: "AdminDetailCtrl",
-      controllerAs: "admin"
+      controllerAs: "admin",
+      resolve: {
+        entries: function($stateParams, database) {
+          return database.getEntries($stateParams.uid);
+        }
+      }
     });
 };
 
