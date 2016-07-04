@@ -3,7 +3,7 @@
 <button ng-click="home.$state.go('new')">new entry</button>
 <button ng-click="home.$state.go('home.list')">list of entries</button>
 <button ng-click="home.$state.go('home.reports')">reports</button>
-<button ng-click="home.$state.go('admin.list')" ng-if="home.role === 'admin'">admin console</a>
+<button ng-click="home.$state.go('admin.list')" ng-if="home.role === 'admin'">admin console</button>
 <button ng-click="signOut()">sign out</button>
 
 <div ui-view></div>

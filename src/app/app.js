@@ -5,6 +5,7 @@ import overlay from './services/overlay';
 import database from './services/database';
 import auth from './services/auth';
 import speed from './services/speed';
+import average from './services/average';
 
 import LoginCtrl from './controllers/login';
 import HomeCtrl from './controllers/home';
@@ -36,6 +37,7 @@ angular.module(MODULE_NAME, [uirouter, angularfire])
   .service('database', database)
   .service('auth', auth)
   .service('speed', speed)
+  .service('average', average)
   .directive('entries', entries)
   .config(routerConfig)
   .run(runConfig);

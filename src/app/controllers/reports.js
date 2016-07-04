@@ -1,7 +1,5 @@
-// Report on average speed & distance per week
-
 class ReportsCtrl {
-  constructor($scope) {
+  constructor($scope, average) {
     var self = this;
 
     this.date = new Date();
@@ -15,6 +13,11 @@ class ReportsCtrl {
       self.end = new Date(self.date);
       self.end.setDate(self.end.getDate() + 2);
 
+      let entriesWithin = $scope.home.entries.filter((entry) => {
+        return entry.date > self.beg && entry.date < self.end;
+      });
+
+      self.average = average.get(entriesWithin);
     };
 
     this.next = function() {
