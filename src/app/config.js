@@ -36,9 +36,13 @@ let routerConfig = ($stateProvider, $urlRouterProvider) => {
     })
     .state('home.list', {
       templateUrl: "templates/home-list.html",
+      url: '/list'
     })    
     .state('home.reports', {
       templateUrl: "templates/home-reports.html",
+      url: '/reports',
+      controller: "ReportsCtrl",
+      controllerAs: "reports",
     })
     .state('new', {
       url: "/new",

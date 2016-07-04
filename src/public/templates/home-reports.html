@@ -1,10 +1,9 @@
 <span ng-show="home.entries.length > 0">
-  <h3>Reports</h3>
+  <h3>Reports for week {{ reports.beg | date:"EEEE d MMM yyyy" }} {{ reports.end | date:"EEEE d MMM yyyy" }}</h3>
 
   <div class="btn-group" role="group">
-    <button type="button" class="btn btn-default">« previous</button>
-    <button type="button" class="btn btn-default">See ___ week</button>
-    <button type="button" class="btn btn-default">next »</button>
+    <button type="button" class="btn btn-default" ng-click="reports.previous()">« previous</button>
+    <button type="button" class="btn btn-default" ng-click="reports.next()">next »</button>
   </div>
 
 </span>

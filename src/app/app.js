@@ -9,6 +9,7 @@ import speed from './services/speed';
 import LoginCtrl from './controllers/login';
 import HomeCtrl from './controllers/home';
 import NewCtrl from './controllers/new';
+import ReportsCtrl from './controllers/reports';
 import AdminListCtrl from './controllers/admin/list';
 import AdminDetailCtrl from './controllers/admin/detail';
 
@@ -28,6 +29,7 @@ angular.module(MODULE_NAME, [uirouter, angularfire])
   .controller('LoginCtrl', LoginCtrl)
   .controller('HomeCtrl', HomeCtrl)
   .controller('NewCtrl', NewCtrl)
+  .controller('ReportsCtrl', ReportsCtrl)
   .controller('AdminListCtrl', AdminListCtrl)
   .controller('AdminDetailCtrl', AdminDetailCtrl)
   .service('overlay', overlay)
