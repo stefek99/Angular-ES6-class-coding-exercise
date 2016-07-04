@@ -26,6 +26,26 @@ describe('average service', () => {
       speed : "33 km/h",
       distance : 5.5
     });
+  });  
+
+  it('should calculate average for two entries', () => {
+
+    var entries =  [
+                     {
+                       "distance": 5,
+                       "time": -2209074600000, // 10 minutes
+                     },
+                     {
+                       "distance": 5,
+                       "time": -2209074600000,
+                     }
+                   ];
+
+    var result = average.get(entries);
+    expect(result).toEqual({
+      speed : "30 km/h",
+      distance : 5
+    });
   });
 
 });

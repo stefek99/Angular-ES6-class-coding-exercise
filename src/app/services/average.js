@@ -1,5 +1,5 @@
 // Report on average speed & distance per week
-let average = () => {
+let average = (speed) => {
   return {
     get : (entries) => {
 
@@ -12,11 +12,18 @@ let average = () => {
         totalKM += entry.distance;
       });
 
+      if (totalKM === 0 || totalSeconds === 0) { // avoiding division by zero (anyway something weird has just happened)
+        return {
+          speed :  "N/A",
+          distance : 0
+        };
+      } else {
+        return {
+          speed : speed.get(totalKM, new Date(0,0,0,0,0,totalSeconds)),
+          distance : totalKM / entries.length
+        };
+      }
 
-      return {
-        speed : "33 km/h",
-        distance : 5.5
-      };
     }
   };
 };
