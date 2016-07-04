@@ -13,11 +13,14 @@ class ReportsCtrl {
       self.end = new Date(self.date);
       self.end.setDate(self.end.getDate() + 2);
 
-      let entriesWithin = $scope.home.entries.filter((entry) => {
+      self.entriesWithin = $scope.home.entries.filter((entry) => {
         return entry.date > self.beg && entry.date < self.end;
       });
 
-      self.average = average.get(entriesWithin);
+      if (self.entriesWithin.length > 0) { // think: I'll put division by 0 check in the service too (who knows who will end up using the code)
+        self.average = average.get(self.entriesWithin);
+      }
+
     };
 
     this.next = function() {

@@ -6,8 +6,13 @@
     <button type="button" class="btn btn-default" ng-click="reports.next()">next »</button>
   </div>
 
-  <h4>Average speed: {{ reports.average.speed }}</h4>
-  <h4>Average distance: {{ reports.average.distance }}</h4>
+  <span ng-show="reports.entriesWithin.length > 0">
+    <h4>Average speed: {{ reports.average.speed }}</h4>
+    <h4>Average distance: {{ reports.average.distance }}</h4>
+  </span>
+  <span ng-show="reports.entriesWithin.length === 0">
+    <h4>No entries for the selected week</h4>
+  </span>
 
   <pre>{{ home.entries | json }}</pre>
   <pre>{{ reports.entriesWithin | json }}</pre>

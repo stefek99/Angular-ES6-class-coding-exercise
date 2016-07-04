@@ -20,3 +20,5 @@ KNOWN BUGS:
 // TODO: REPORT ON AVERAGE SPEED AND DISTANCE PER WEEK...
 
 "not showing ___ filtered resutls"
+
+* distance negative

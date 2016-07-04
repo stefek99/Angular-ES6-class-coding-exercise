@@ -21,7 +21,8 @@ describe('HomeCtrl', () => {
     });
   });
 
-  it('should have edit method defined', () => {
-    expect(typeof ctrl.edit).toBe("function");
+  // Keeping this file handy because I'd like to add more tests for the controllers
+  it('should calculate 2 + 2', () => {
+    expect(2+2).toBe(4);
   });
 });
