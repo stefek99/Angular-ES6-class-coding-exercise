@@ -32,7 +32,7 @@
     </td>
     <td class="distance">
       <span ng-show="entry.state !== 'edit'">{{ entry.distance }}</span>
-      <span ng-show="entry.state === 'edit'"><input type="number" step="any" ng-model="entry.distance"></span>
+      <span ng-show="entry.state === 'edit'"><input type="number" step="any" min=0 ng-model="entry.distance"></span>
     </td>    
     <td class="speed">
       {{ entry.speed }} <!-- displayed regardless the state -->

@@ -64,7 +64,7 @@ let entries = (database, speed) => {
       this.fromTo = function() {
         var that = this; // required because of `this` and `closures`
         return function(entry) {
-          return (entry.dateDate < that.to && entry.dateDate > that.from);
+          return (entry.dateDate < that.to && entry.dateDate > that.from) || entry.state === "edit"; // as we are editing we don't want item to disappear due to filters
         };
       };
     },
