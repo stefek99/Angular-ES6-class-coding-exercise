@@ -5,13 +5,20 @@ class ReportsCtrl {
     this.date = new Date();
 
     let _calculateWeek = function() {
-      let dotw = self.date.getDay(); // dow === day of the week
+      let dotw = self.date.getDay(); // dow === day of the week, remember 0 is Sunday
+      // if 1 - end +6, beg -1
+      // if 2 - end +5, beg -2
+      // ...
+      // if 6 - end +1, beg -6
+      // if 0 - end +0, beg -7
+      // if 7 - end +0, beg -7 
+      dotw = dotw ? dotw : 7; // if 0 assigning 7 to simplify calculations
 
       self.beg = new Date(self.date);
-      self.beg.setDate(self.beg.getDate() - 4);
+      self.beg.setDate(self.beg.getDate() - (dotw - 1));
 
       self.end = new Date(self.date);
-      self.end.setDate(self.end.getDate() + 2);
+      self.end.setDate(self.end.getDate() + (7 - dotw));
 
       self.entriesWithin = $scope.home.entries.filter((entry) => {
         return entry.date > self.beg && entry.date < self.end;
