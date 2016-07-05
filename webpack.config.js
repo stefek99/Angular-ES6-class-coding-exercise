@@ -187,7 +187,9 @@ module.exports = function makeWebpackConfig () {
 
       // Reference: http://webpack.github.io/docs/list-of-plugins.html#uglifyjsplugin
       // Minify all javascript, switch loaders to minimizing mode
-      new webpack.optimize.UglifyJsPlugin(),
+      
+      // FIX HACK NIEHALO --- naprawde wolalbym minified ale ciezko o tej porze...
+      // new webpack.optimize.UglifyJsPlugin(),
 
       // Copy assets from the public folder
       // Reference: https://github.com/kevlened/copy-webpack-plugin

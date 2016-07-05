@@ -100,8 +100,11 @@ let runConfig = ($rootScope, $state, database) => {
   });
 
   $rootScope.$on("$stateChangeError", function(event, next, previous, error) {
-    console.warn("Not authenticated - redicreting to login");
-    $state.go("login");
+    if($rootScope.user.uid) {
+      $state.go("home.list");
+    } else {
+      $state.go("login");
+    }
   });
 
   $rootScope.$on('$stateChangeStart', function(evt, to, params) {

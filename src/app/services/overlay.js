@@ -1,9 +1,10 @@
+// didn't have time to add a nice overlay...
 let overlay = () => {
   return {
-    success : function() { console.log("success") },
-    error   : function() { console.log("error") },
-    loading : function() { console.log("loading") },
-    hide    : function() { console.log("hide") }
+    success : function() { /* console.log("success") */},
+    error   : function() { /* console.log("error")   */},
+    loading : function() { /* console.log("loading") */},
+    hide    : function() { /* console.log("hide")    */}
   };
 };
 
