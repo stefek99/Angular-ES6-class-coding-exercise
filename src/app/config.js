@@ -100,7 +100,7 @@ let runConfig = ($rootScope, $state, database) => {
   });
 
   $rootScope.$on("$stateChangeError", function(event, next, previous, error) {
-    if($rootScope.user.uid) {
+    if($rootScope.user && $rootScope.user.uid) {
       $state.go("home.list");
     } else {
       $state.go("login");

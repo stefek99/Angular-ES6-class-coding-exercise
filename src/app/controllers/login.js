@@ -3,9 +3,9 @@ let LoginCtrl = ($scope, $state, overlay) => {
   var _clear = function() {
     $scope.data = { 
       state : "login",
-      email : "default2@example.com",
-      password : "password",
-      repeat : "password"
+      email : "",
+      password : "",
+      repeat : ""
     };
   };
 
