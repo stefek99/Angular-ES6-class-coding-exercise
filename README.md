@@ -1,89 +1,18 @@
-# angular-webpack
+Write an application that tracks jogging times of users
 
-[![Dependency Status](https://david-dm.org/preboot/angular-webpack/status.svg)](https://david-dm.org/preboot/angular-webpack#info=dependencies) [![devDependency Status](https://david-dm.org/preboot/angular-webpack/dev-status.svg)](https://david-dm.org/preboot/angular-webpack#info=devDependencies)
+* User must be able to create an account and log in (If a mobile application, this means that more users can use the app from the same phone)
+* When logged in, user can see, edit and delete his times he entered
+* Implement at least two roles with different permission levels (ie: a regular user would only be able to CRUD on his owned records, a user manager would be able to CRUD users, an admin would be able to CRUD on all records and users, etc.)
+* Each time entry when entered has a date, distance, and time
+* When displayed, each time entry has an average speed
+* Filter by dates from-to
+* Report on average speed & distance per week
+* REST API. Make it possible to perform all user actions via the API, including authentication (If a mobile application and you don’t know how to create your own backend you can use Firebase.com or similar services to create the API).
+* In any case you should be able to explain how a REST API works and demonstrate that by creating functional tests that use the REST Layer directly.
+* All actions need to be done client side using AJAX, refreshing the page is not acceptable. (If a mobile app, disregard this)
+* Bonus: unit and e2e tests!
+* You will not be marked on graphic design, however, do try to keep it as tidy as possible.
 
-A complete, yet simple, starter for Angular using Webpack.
+---
 
-This workflow serves as a starting point for building Angular 1.x applications using Webpack. Should be noted that apart from the pre-installed angular package, this workflow is pretty much generic.
-
-* Heavily commented webpack configuration with reasonable defaults.
-* ES6, and ES7 support with babel.
-* Source maps included in all builds.
-* Development server with live reload.
-* Production builds with cache busting.
-* Testing environment using karma to run tests and jasmine as the framework.
-* Code coverage when tests are run.
-* No gulp and no grunt, just npm scripts.
-
->Warning: Make sure you're using the latest version of Node.js and NPM
-
-### Quick start
-
-> Clone/Download the repo then edit `app.js` inside [`/src/app/app.js`](/src/app/app.js)
-
-```bash
-# clone our repo
-$ git clone https://github.com/preboot/angular-webpack.git my-app
-
-# change directory to your app
-$ cd my-app
-
-# install the dependencies with npm
-$ npm install
-
-# start the server
-$ npm start
-```
-
-go to [http://localhost:8080](http://localhost:8080) in your browser.
-
-# Table of Contents
-
-* [Getting Started](#getting-started)
-    * [Dependencies](#dependencies)
-    * [Installing](#installing)
-    * [Running the app](#running-the-app)
-    * [Developing](#developing)
-    * [Testing](#testing)
-* [License](#license)
-
-# Getting Started
-
-## Dependencies
-
-What you need to run this app:
-* `node` and `npm` (Use [NVM](https://github.com/creationix/nvm))
-* Ensure you're running Node (`v4.1.x`+) and NPM (`2.14.x`+)
-
-## Installing
-
-* `fork` this repo
-* `clone` your fork
-* `npm install` to install all dependencies
-
-## Running the app
-
-After you have installed all dependencies you can now run the app with:
-```bash
-npm start
-```
-
-It will start a local server using `webpack-dev-server` which will watch, build (in-memory), and reload for you. The port will be displayed to you as `http://localhost:8080`.
-
-## Developing
-
-### Build files
-
-* single run: `npm run build`
-* build files and watch: `npm run watch`
-
-## Testing
-
-#### 1. Unit Tests
-
-* single run: `npm test`
-* live mode (TDD style): `npm run test-watch`
-
-# License
-
-[MIT](/LICENSE)
+Scaffold of the app based on https://github.com/stefek99/angular-webpack
